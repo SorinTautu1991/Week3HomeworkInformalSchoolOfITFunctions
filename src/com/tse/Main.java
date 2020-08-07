@@ -1,5 +1,7 @@
 package com.tse;
 
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -10,21 +12,21 @@ public class Main {
                 new SalesRepresentatives("Georgel", 200, 50)};
 
 
-        for(int i=0;i<rep.length-1;i++){
-            for(int j=0;j<rep.length-i-1;j++){
-                if(rep[j].totalSales() < rep[j+1].totalSales()){
-                    SalesRepresentatives temp = rep[j];
-                    rep[j] = rep[j+1];
-                    rep[j+1] = temp;
+        SalesRepresentatives objectResult = new SalesRepresentatives();
 
-                }
-            }
+        SalesRepresentatives[] result = objectResult.sortedReps(rep);
+        for(int i=0;i<result.length;i++){
+            System.out.println("The folowing sales representative: " + result[i].getName() + " has made sales of :  " + result[i].totalSales());
+        }
+        System.out.println("Results are already sorted in descending order using a bubbleSorting Algorithm!!!");
+
         }
 
-        for(int i=0;i<rep.length;i++){
-            System.out.println(rep[i].totalSales());
-        }
 
-    }
+
 }
+
+
+
+
 
